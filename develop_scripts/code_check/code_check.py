@@ -32,7 +32,7 @@ def check(module):
 
     if module[-3:] == ".py":
 
-        pout = os.popen('pylint {} --output-format={}'.format(module, TYPE), 'r')
+        pout = os.popen('pylint {} --output-format={} --extension-pkg-whitelist=numpy'.format(module, TYPE), 'r')
         module = module.replace("../", "")
         if TYPE == "html":
             print('<button data-toggle="collapse" data-target="#{1}" class="btn btn-default" style="width: 500px;">'
